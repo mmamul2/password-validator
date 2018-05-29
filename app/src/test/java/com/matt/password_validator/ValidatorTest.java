@@ -36,10 +36,12 @@ public class ValidatorTest {
         String pass5 = "a2c4e6g8i";
         String pass6 = "123";
         String pass7 = "a2c";
+
         //TODO: need to finish the stage 2 tests - case, special
         String pass8 = "Matthew1985";
         String pass9 = "matthew1985";
-
+        String pass10 = "";
+        String pass11 = "";
 
         //stage 1
        assertEquals(1, Validator.validate(pass1));
@@ -54,17 +56,38 @@ public class ValidatorTest {
 
        //stage2 - case
 
+
+       //stage2 - special
+
     }
 
     @Test
     public void testNumber() {
         String pass1 = "abcdefghi";
-        String pass2 = "1234567890";
-        String pass3 = "a2c4e6g8i";
+        String pass2 = "a2c4e6g8i";
 
         assertFalse(Validator.numberCheck(pass1));
         assertTrue(Validator.numberCheck(pass2));
+    }
+
+    @Test
+    public void testCase() {
+        String pass1 = "abcdefghi";
+        String pass2 = "DDDDDDDDDDDD";
+        String pass3 = "TestingCase";
+
+        assertFalse(Validator.numberCheck(pass1));
+        assertFalse(Validator.numberCheck(pass2));
         assertTrue(Validator.numberCheck(pass3));
+    }
+
+    @Test
+    public void testSpecial() {
+        String pass1 = "abcdefghi";
+        String pass2 = "p@$$word3";
+
+        assertFalse(Validator.numberCheck(pass1));
+        assertTrue(Validator.numberCheck(pass2));
     }
 
 }
