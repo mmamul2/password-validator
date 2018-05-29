@@ -28,10 +28,10 @@ public class ValidatorTest {
     @Test
     public void testValidate() {
         String pass1 = "password";
-        String pass2 = "abcdef";
+        String pass2 = "abc";
         String pass3 = "ijklmnopwq";
 
-       assertEquals(0, Validator.validate(pass1));
+       assertEquals(1, Validator.validate(pass1));
        assertEquals(1, Validator.validate(pass2));
        assertEquals(2, Validator.validate(pass3));
     }
