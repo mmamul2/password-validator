@@ -15,6 +15,7 @@ public class Validator {
        return testsPassed;
     }
 
+    //cannot be the word "password"
     static public boolean passwordCheck(String password){
         boolean check = false;
 
@@ -25,12 +26,34 @@ public class Validator {
         return check;
     }
 
+    //must be 8+ character long
     static public boolean lengthCheck(String password){
         boolean check = false;
 
         if(password.length() >= 8){
             check = true;
         }
+
+        return check;
+    }
+
+    //must contain atleast 1 number and 1 letter
+    static public boolean numberCheck(String password){
+        boolean check = false;
+
+        return check;
+    }
+
+    //must contain atleast 1 upper case and 1 lower case letter
+    static public boolean caseCheck(String password){
+        boolean check = false;
+
+        return check;
+    }
+
+    //must contain atleast 1 special character
+    static public boolean specialCheck(String password){
+        boolean check = false;
 
         return check;
     }
