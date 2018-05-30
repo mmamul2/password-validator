@@ -16,6 +16,7 @@ public class Validator {
     }
 
     //cannot be the word "password"
+    //TODO: this may be dropped, not needed given the other rules.
     static public boolean passwordCheck(String password){
         boolean check = false;
 
