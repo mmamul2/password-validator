@@ -42,6 +42,9 @@ public class Validator {
     static public boolean numberCheck(String password){
         boolean check = false;
 
+        if(password.matches(".*[0-9].*")) {
+            check = true;
+        }
         return check;
     }
 

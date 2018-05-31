@@ -41,15 +41,15 @@ public class ValidatorTest {
         assertEquals(5, Validator.validate(passAll));
 
         for (String pass : pass2Checks) {
-            assertEquals(2, pass);
+            assertEquals(2,  Validator.validate(pass));
         }
 
         for (String pass : pass3Checks) {
-            assertEquals(3, pass);
+            assertEquals(3, Validator.validate(pass));
         }
 
         for (String pass : pass4Checks) {
-            assertEquals(4, pass);
+            assertEquals(4, Validator.validate(pass));
         }
     }
 
@@ -68,9 +68,9 @@ public class ValidatorTest {
         String pass2 = "DDDDDDDDDDDD";
         String pass3 = "TestingCase";
 
-        assertFalse(Validator.numberCheck(pass1));
-        assertFalse(Validator.numberCheck(pass2));
-        assertTrue(Validator.numberCheck(pass3));
+        assertFalse(Validator.caseCheck(pass1));
+        assertFalse(Validator.caseCheck(pass2));
+        assertTrue(Validator.caseCheck(pass3));
     }
 
     @Test
@@ -78,8 +78,8 @@ public class ValidatorTest {
         String pass1 = "abcdefghi";
         String pass2 = "p@$$word3";
 
-        assertFalse(Validator.numberCheck(pass1));
-        assertTrue(Validator.numberCheck(pass2));
+        assertFalse(Validator.specialCheck(pass1));
+        assertTrue(Validator.specialCheck(pass2));
     }
 
 }
