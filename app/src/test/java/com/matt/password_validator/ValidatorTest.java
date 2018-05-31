@@ -29,39 +29,28 @@ public class ValidatorTest {
 
     @Test
     public void testValidate() {
-        //1 pass
         String pass1 = "password";
         String pass2 = "abc";
+        String[] pass2Checks = {"ijklmnopwq", "aB", "$$$", "1234"};
+        String[] pass3Checks = {"1234567890", "AbCdEfGhhhh", "$$$$@@@@!!", "123aB", "12@@", "aB@$"};
+        String[] pass4Checks = {"ABcdef777", "aB12$$", "a2c4e6g8i$$$@", "aBcD$$@@j"};
+        String passAll = "123ABCefg$$$";
 
-        //2 pass
-        String pass3 = "ijklmnopwq";
-        String[] pass2arr = {"ijklmnopwq", "aB", "$$$", "1234"};
-
-        //3 pass
-        String pass4 = "1234567890";
-        String pass5 = "a2c4e6g8i"; //these 2 test the same stuff.
-        String[] pass3arr = {"1234567890", "AbCdEfGhhhh", "$$$$@@@@!!", "123aB", "12@@", "aB@$"};
-
-        //4 pass
-        String pass6 = "ABcdef777";
-        String pass7 = "aB12$$";
-        String pass8 = "a2c4e6g8i$$$@";
-        String pass9 = "aBcD$$@@j";
-        String[] pass4arr = {"ABcdef777", "aB12$$", "a2c4e6g8i$$$@", "aBcD$$@@j"};
-
-        //all pass
-        String pass10 = "123ABCefg$$$";
-//TODO: need to update this to work with the arrays to tidy up the code.
         assertEquals(1, Validator.validate(pass1));
         assertEquals(1, Validator.validate(pass2));
-        assertEquals(2, Validator.validate(pass3));
-        assertEquals(3, Validator.validate(pass4));
-        assertEquals(3, Validator.validate(pass5));
-        assertEquals(4, Validator.validate(pass6));
-        assertEquals(4, Validator.validate(pass7));
-        assertEquals(4, Validator.validate(pass8));
-        assertEquals(4, Validator.validate(pass9));
-        assertEquals(5, Validator.validate(pass10));
+        assertEquals(5, Validator.validate(passAll));
+
+        for (String pass : pass2Checks) {
+            assertEquals(2, pass);
+        }
+
+        for (String pass : pass3Checks) {
+            assertEquals(3, pass);
+        }
+
+        for (String pass : pass4Checks) {
+            assertEquals(4, pass);
+        }
     }
 
     @Test
