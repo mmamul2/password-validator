@@ -38,7 +38,7 @@ public class ValidatorTest {
 
         assertEquals(1, Validator.validate(pass1));
         assertEquals(1, Validator.validate(pass2));
-        //assertEquals(5, Validator.validate(passAll));
+        assertEquals(5, Validator.validate(passAll));
 
         for (String pass : pass2Checks) {
             assertEquals(2,  Validator.validate(pass));

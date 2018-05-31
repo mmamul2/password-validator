@@ -5,10 +5,20 @@ public class Validator {
     static public int validate(String password){
        int testsPassed = 0;
 
+      //TODO: Should handle case where password is null before calling method in an activity.
         if(passwordCheck(password)){
             testsPassed++;
         }
         if(lengthCheck(password)){
+            testsPassed++;
+        }
+        if(numberCheck(password)){
+            testsPassed++;
+        }
+        if(caseCheck(password)){
+            testsPassed++;
+        }
+        if(specialCheck(password)){
             testsPassed++;
         }
 
