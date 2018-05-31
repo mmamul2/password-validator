@@ -67,10 +67,12 @@ public class ValidatorTest {
         String pass1 = "abcdefghi";
         String pass2 = "DDDDDDDDDDDD";
         String pass3 = "TestingCase";
+        String pass4 = "aaaaBBBBc";
 
         assertFalse(Validator.caseCheck(pass1));
         assertFalse(Validator.caseCheck(pass2));
         assertTrue(Validator.caseCheck(pass3));
+        assertTrue(Validator.caseCheck(pass4));
     }
 
     @Test

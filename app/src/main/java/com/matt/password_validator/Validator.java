@@ -52,6 +52,9 @@ public class Validator {
     static public boolean caseCheck(String password){
         boolean check = false;
 
+        if(password.matches(".*[a-z].*[A-Z].*") || password.matches(".*[A-Z].*[a-z].*")){
+            check = true;
+        }
         return check;
     }
 
