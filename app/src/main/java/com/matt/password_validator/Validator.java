@@ -62,6 +62,11 @@ public class Validator {
     static public boolean specialCheck(String password){
         boolean check = false;
 
+
+        if(password.matches(".*[\\p{Punct}].*")){
+            check = true;
+        }
+
         return check;
     }
 
