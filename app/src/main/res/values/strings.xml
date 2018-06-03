@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">password-validator</string>
+    <string name="box_hint">Enter text</string>
+    <string name="button_text">BUTTON</string>
+    <string name="starttext">Enter password</string>
 </resources>
