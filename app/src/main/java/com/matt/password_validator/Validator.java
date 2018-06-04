@@ -26,7 +26,6 @@ public class Validator {
     }
 
     //cannot be the word "password"
-    //TODO: this may be dropped, not needed given the other rules.
     static public boolean passwordCheck(String password){
         boolean check = false;
 
@@ -72,7 +71,7 @@ public class Validator {
     static public boolean specialCheck(String password){
         boolean check = false;
 
-
+//TODO: need to fix this method, android doesn't like the regex
         if(password.matches(".*[\\p{Punct}].*")){
             check = true;
         }

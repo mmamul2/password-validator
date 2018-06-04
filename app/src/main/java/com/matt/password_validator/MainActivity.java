@@ -15,12 +15,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void validatePassword(View view){
-    //String xxxx = ((EditText) findViewById(R.id.password)).getText().toString();
-   // System.out.println(password);
+    String passToValidate = ((EditText) findViewById(R.id.password)).getText().toString();
 
-        ((TextView) findViewById(R.id.message)).setText("gggggggggg");
+    if(passToValidate.equals("") || passToValidate.equals(null)) {
+        ((TextView) findViewById(R.id.message)).setText("No password entered");
+        return;
+    }
 
+    int checksPassed = Validator.validate(passToValidate);
 
+    //Cannot pass 0 check, is it fails the "password" test it will pass the length check.
+    //Included 0 for completeness
+    switch(checksPassed){
+        case 0: ((TextView) findViewById(R.id.message)).setText("Very Weak");
+                break;
+        case 1: ((TextView) findViewById(R.id.message)).setText("Very Weak");
+                break;
+        case 2: ((TextView) findViewById(R.id.message)).setText("Weak");
+                break;
+        case 3: ((TextView) findViewById(R.id.message)).setText("Not Strong");
+                break;
+        case 4: ((TextView) findViewById(R.id.message)).setText("Not Strong");
+                break;
+        case 5: ((TextView) findViewById(R.id.message)).setText("Strong");
+                break;
+    }
 
     }
 }

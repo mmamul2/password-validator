@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -41,11 +42,47 @@ public class uiTest {
     @Test
     public void nullTest(){
         onView(withId(R.id.button)).perform(click());
-
-        onView(withId(R.id.strength)).check(matches(withText("No password entered")));
+        onView(withId(R.id.message)).check(matches(withText("No password entered")));
     }
 
+    @Test
+    public void strongTest(){
+        onView(withId(R.id.password)).perform(typeText("123ABCefg$$$"));
+        closeSoftKeyboard();
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.message)).check(matches(withText("Strong")));
+    }
 
+    @Test
+    public void passOneTest(){
+        onView(withId(R.id.password)).perform(typeText("abc"));
+        closeSoftKeyboard();
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.message)).check(matches(withText("Very Weak")));
+    }
 
+    @Test
+    public void passTwoTest(){
+        onView(withId(R.id.password)).perform(typeText("abcdefghi"));
+        closeSoftKeyboard();
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.message)).check(matches(withText("Weak")));
+    }
+
+    @Test
+    public void passThreeTest(){
+        onView(withId(R.id.password)).perform(typeText("abCdefghi"));
+        closeSoftKeyboard();
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.message)).check(matches(withText("Not Strong")));
+    }
+
+    @Test
+    public void passFourTest(){
+        onView(withId(R.id.password)).perform(typeText("abCEefghi123"));
+        closeSoftKeyboard();
+        onView(withId(R.id.button)).perform(click());
+        onView(withId(R.id.message)).check(matches(withText("Not Strong")));
+    }
 
 }
