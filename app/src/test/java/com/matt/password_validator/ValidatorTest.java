@@ -77,7 +77,7 @@ public class ValidatorTest {
 
     @Test
     public void testSpecial() {
-        String pass1 = "abcdefghi";
+        String pass1 = "abcdefghi   ";
         String pass2 = "p@$$word3";
 
         assertFalse(Validator.specialCheck(pass1));

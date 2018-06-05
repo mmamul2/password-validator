@@ -15,31 +15,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void validatePassword(View view){
-    String passToValidate = ((EditText) findViewById(R.id.password)).getText().toString();
+        String passToValidate = ((EditText) findViewById(R.id.password)).getText().toString();
 
-    if(passToValidate.equals("") || passToValidate.equals(null)) {
-        ((TextView) findViewById(R.id.message)).setText("No password entered");
-        return;
-    }
+        if(passToValidate.equals("")){
+            ((TextView) findViewById(R.id.message)).setText("No password entered");
+            return;
+        }
 
-    int checksPassed = Validator.validate(passToValidate);
+        int checksPassed = Validator.validate(passToValidate);
 
-    //Cannot pass 0 check, is it fails the "password" test it will pass the length check.
-    //Included 0 for completeness
-    switch(checksPassed){
-        case 0: ((TextView) findViewById(R.id.message)).setText("Very Weak");
-                break;
-        case 1: ((TextView) findViewById(R.id.message)).setText("Very Weak");
-                break;
-        case 2: ((TextView) findViewById(R.id.message)).setText("Weak");
-                break;
-        case 3: ((TextView) findViewById(R.id.message)).setText("Not Strong");
-                break;
-        case 4: ((TextView) findViewById(R.id.message)).setText("Not Strong");
-                break;
-        case 5: ((TextView) findViewById(R.id.message)).setText("Strong");
-                break;
-    }
+        //Cannot pass 0 check, is it fails the "password" test it will pass the length check.
+        //Included 0 for completeness
+        switch(checksPassed){
+            case 0: ((TextView) findViewById(R.id.message)).setText("Very Weak");
+                    break;
+            case 1: ((TextView) findViewById(R.id.message)).setText("Very Weak");
+                    break;
+            case 2: ((TextView) findViewById(R.id.message)).setText("Weak");
+                    break;
+            case 3: ((TextView) findViewById(R.id.message)).setText("Not Strong");
+                    break;
+            case 4: ((TextView) findViewById(R.id.message)).setText("Not Strong");
+                    break;
+            case 5: ((TextView) findViewById(R.id.message)).setText("Strong");
+                    break;
+        }
 
     }
 }
