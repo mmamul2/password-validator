@@ -5,7 +5,6 @@ public class Validator {
     static public int validate(String password){
        int testsPassed = 0;
 
-      //TODO: Should handle case where password is null before calling method in an activity.
         if(passwordCheck(password)){
             testsPassed++;
         }
@@ -25,8 +24,6 @@ public class Validator {
        return testsPassed;
     }
 
-    //cannot be the word "password"
-    //TODO: this may be dropped, not needed given the other rules.
     static public boolean passwordCheck(String password){
         boolean check = false;
 
@@ -37,7 +34,6 @@ public class Validator {
         return check;
     }
 
-    //must be 8+ character long
     static public boolean lengthCheck(String password){
         boolean check = false;
 
@@ -48,7 +44,6 @@ public class Validator {
         return check;
     }
 
-    //must contain atleast 1 number and 1 letter
     static public boolean numberCheck(String password){
         boolean check = false;
 
@@ -58,7 +53,6 @@ public class Validator {
         return check;
     }
 
-    //must contain atleast 1 upper case and 1 lower case letter
     static public boolean caseCheck(String password){
         boolean check = false;
 
@@ -68,12 +62,11 @@ public class Validator {
         return check;
     }
 
-    //must contain atleast 1 special character
     static public boolean specialCheck(String password){
         boolean check = false;
 
-
-        if(password.matches(".*[\\p{Punct}].*")){
+        //checks that password contains a non-letter, non-number, non-white space character
+        if(password.matches(".*[^0-9a-zA-Z \\t\\n\\x0B\\f\\r].*")){
             check = true;
         }
 
