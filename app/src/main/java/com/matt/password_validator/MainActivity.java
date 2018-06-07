@@ -16,30 +16,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void validatePassword(View view){
         String passToValidate = ((EditText) findViewById(R.id.password)).getText().toString();
+        String blankPass = "No password entered";
 
         if(passToValidate.equals("")){
-            ((TextView) findViewById(R.id.message)).setText("No password entered");
+            ((TextView) findViewById(R.id.message)).setText(blankPass);
             return;
         }
 
         int checksPassed = Validator.validate(passToValidate);
+        String status[] = {"Very Weak", "Weak", "Not Strong", "Strong"};
 
-        //Cannot pass 0 check, is it fails the "password" test it will pass the length check.
-        //Included 0 for completeness
-        switch(checksPassed){
-            case 0: ((TextView) findViewById(R.id.message)).setText("Very Weak");
-                    break;
-            case 1: ((TextView) findViewById(R.id.message)).setText("Very Weak");
-                    break;
-            case 2: ((TextView) findViewById(R.id.message)).setText("Weak");
-                    break;
-            case 3: ((TextView) findViewById(R.id.message)).setText("Not Strong");
-                    break;
-            case 4: ((TextView) findViewById(R.id.message)).setText("Not Strong");
-                    break;
-            case 5: ((TextView) findViewById(R.id.message)).setText("Strong");
-                    break;
+        if(checksPassed <= 1){
+            ((TextView) findViewById(R.id.message)).setText(status[0]);
+        } else if(checksPassed == 2){
+            ((TextView) findViewById(R.id.message)).setText(status[1]);
+        } else if(checksPassed <= 4){
+            ((TextView) findViewById(R.id.message)).setText(status[2]);
+        } else if(checksPassed == 5){
+            ((TextView) findViewById(R.id.message)).setText(status[3]);
         }
-
     }
 }
